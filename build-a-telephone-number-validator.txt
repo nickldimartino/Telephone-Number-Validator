@@ -1,0 +1,88 @@
+** start of undefined **
+
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='utf-8' />
+    <meta content='viewport' width='width=device-width, initial-scale=1.0' />
+    <link rel='stylesheet' href="./styles.css" />
+    <title>Telephone Number Validator</title>
+  </head>
+  <body>
+    <div id='box'>
+      <h1>Telephone Validator</h1>
+      <h3>Enter a phone number below:</h3>
+      <input id='user-input' />
+      <button id='check-btn'>Check</button>
+      <button id='clear-btn'>Clear</button>
+      <div id='results-div'></div>
+    </div>
+    <script src='./script.js'></script>
+  </body>
+</html>
+
+** end of undefined **
+
+** start of undefined **
+
+body {
+  background-color: rgb(127, 0, 0)
+}
+
+#box {
+  background-color: rgb(100, 100, 0);
+  text-align: center;
+  padding: 15px;
+  border-radius: 20px;
+  border: 2px solid white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
+
+h1, h3 {
+  color: rgb(200, 150, 100);
+}
+
+#results-div {
+  color: rgb(200, 150, 100);
+  padding-top: 10px;
+}
+ 
+
+** end of undefined **
+
+** start of undefined **
+
+const checkButton = document.getElementById('check-btn');
+const clearButton = document.getElementById('clear-btn');
+const userInput = document.getElementById('user-input');
+const results = document.getElementById('results-div');
+
+const checkInput = () => {
+  let num = userInput.value;
+  
+  let pattern1 = /^([+]?1[\s]?)?((?:[(](?:[2-9]1[02-9]|[2-9][02-8][0-9])[)][\s]?)|(?:(?:[2-9]1[02-9]|[2-9][02-8][0-9])[\s.-]?)){1}([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2}[\s.-]?){1}([0-9]{4}){1}$/;
+
+  if (num == null || num == "") {
+    alert("Please provide a phone number");
+    return;
+  }
+
+  return pattern1.test(num) 
+    ? results.innerText = "Valid US number: " + num 
+    : results.innerText = "Invalid US number: " + num;
+}
+
+const clearInput = () => {
+  userInput.innerText = null;
+  results.innerText = null;
+}
+
+checkButton.addEventListener("click", checkInput);
+clearButton.addEventListener("click", clearInput);
+
+** end of undefined **
+
